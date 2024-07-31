@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Booking</title>
+    <link rel="stylesheet" href="nextpage.css">
+</head>
+
+<body>
+    <div class="booking-section">
+        <div class="movie-poster">
+            <img id="moviePoster" src="" alt="Movie Poster">
+        </div>
+        <div class="booking-form">
+            <h2>Book Your Movie</h2>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="place">Place</label>
+                    <select id="place" name="place">
+                        <option value="Warangal">Warangal</option>
+                        <option value="Hanamkonda">Hanamkonda</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Karimnagar">Karimnagar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time</label>
+                    <select id="time" name="time">
+                        <option value="09:45 AM">09:45 AM</option>
+                        <option value="12:45 PM">12:45 PM</option>
+                        <option value="06:30 PM">06:30 PM</option>
+                        <option value="09:30 PM">09:30 PM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="venue">Venue</label>
+                    <select id="venue" name="venue">
+                        <option value="PVR, AJANTHA MALL">PVR, AJANTHA MALL</option>
+                        <option value="ASIAN CINEMA, SRIDEVI MALL">ASIAN CINEMA, SRIDEVI MALL</option>
+                        <option value="AMB, SHARATH CITY MALL">AMB, SHARATH CITY MALL</option>
+                        <option value="PVR, JYOTHI MALL">PVR, JYOTHI MALL</option>
+                    </select>
+                </div>
+               
+                <button id="bookNowButton" type="button">Select Your Seats</button>
+            </form>
+        </div>
+        <p class="thank-you-message" id="thank-you-message" style="display:none;"></p>
+    </div>
+
+    <script>
+        // Get the movie poster from local storage
+        const moviePoster = localStorage.getItem('moviePoster');
+
+        // Set the movie poster image source
+        if (moviePoster) {
+            document.getElementById('moviePoster').src = moviePoster;
+        }
+
+          // JavaScript function to redirect to seats.html
+          document.getElementById("bookNowButton").addEventListener("click", function() {
+            window.location.href = "seats.html";
+        });
+    </script>
+</body>
+
+</html>

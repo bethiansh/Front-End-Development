@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Auth App</title>
+    <link rel="stylesheet" href="authentication.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="tableco"><p>Welcome to BookWithEase, your one-stop destination for hassle-free movie ticket bookings! We're thrilled to announce the launch of our brand new website, designed exclusively for cinephiles like you.</p>
+        </div>
+        <div>
+            <img class="image-dummy" src="img/dummy.jpeg" alt="log">
+        </div>
+        <div class="datapoint">
+            <a href="index.html"><button id="homeButton">Home Page</button></a>
+            <button id="signInButton">Sign In</button>
+            <button id="signOutButton">Sign Out</button>
+        </div>
+       
+    
+        <div id="message">
+            <p>You have signed in as <span id="userName"></span> with the email <span id="userEmail"></span></p>
+        </div>
+    
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDau7B-y0UwY72cTzb-LmfinhBBaLqq7BQ",
+            authDomain: "bookwithease.firebaseapp.com",
+            projectId: "bookwithease",
+            storageBucket: "bookwithease.appspot.com",
+            messagingSenderId: "307383960613",
+            appId: "1:307383960613:web:67a8980108a79aabf4ebcc",
+            measurementId: "G-L4W6H39PDH"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+        // Get DOM elements
+        const signInButton = document.getElementById("signInButton");
+        const signOutButton = document.getElementById("signOutButton");
+        const message = document.getElementById("message");
+        const userName = document.getElementById("userName");
+        const userEmail = document.getElementById("userEmail");
+        // Hide sign out button and message initially
+        signOutButton.style.display = "none";
+        message.style.display = "none";
+        // Sign-in function
+        const userSignIn = async () => {
+            try {
+                const result = await signInWithPopup(auth, provider);
+                const user = result.user;
+                console.log(user);
+            } catch (error) {
+                console.error("Error during sign in:", error.code, error.message);
+            }
+        };
+        // Sign-out function
+        const userSignOut = async () => {
+            try {
+                await signOut(auth);
+                alert("You have signed out successfully");
+            } catch (error) {
+                console.error("Error during sign out:", error);
+            }
+        };
+        // Monitor auth state
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                signOutButton.style.display = "block";
+                message.style.display = "block";
+                userName.textContent = user.displayName;
+                userEmail.textContent = user.email;
+            } else {
+                signOutButton.style.display = "none";
+                message.style.display = "none";
+            }
+        });
+
+        // Attach event listeners
+        signInButton.addEventListener("click", userSignIn);
+        signOutButton.addEventListener("click", userSignOut);
+    </script>
+</body>
+</html>

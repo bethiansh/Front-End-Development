@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#message {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e0ffe0;
+    border: 1px solid #00c851;
+    border-radius: 5px;
+}
+
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container {
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    margin: 20px;
+    
+}
+
+.image-dummy {
+    width: 250px;
+    height: 250px; 
+    border-radius: 50%; 
+    margin: 20px;
+}
+
+#message {
+    margin-top: 20px;
+}
+
+button {
+    margin: 5px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer;
+}
+
+
+#homeButton {
+    background-color: #007bff; 
+    color: #fff; 
+    border: none;
+}
+
+#signInButton {
+    background-color: #28a745;
+    color: #fff; 
+    border: none;
+}
+
+#signOutButton {
+    background-color: #dc3545; /* Red color */
+    color: #fff; /* White text */
+    border: none;
+    width: 230px;
+}
+
+/* Styles for the message paragraph */
+#message p {
+    font-size: 18px; /* Adjust as needed */
+}
+
+/* Styles for the spans inside the message paragraph */
+#userName, #userEmail {
+    font-weight: bold;
+    color: #333; /* Dark text color */
+}
+.tableco {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.tableco p {
+    width: 60%;
+    text-align: center;
+
+}
